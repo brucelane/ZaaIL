@@ -55,15 +55,19 @@ int* getPixels(int offset_x, int offset_y, int offset_z, int width, int height, 
 		b = bytes[i+2];
 		a = bytes[i+3];
  
-		bytes[i] = a;
+		/*bytes[i] = a;
 		bytes[i+1] = r;
 		bytes[i+2] = g;
-		bytes[i+3] = b;
+		bytes[i+3] = b;*/
+		tBuffer[i] = a;
+		tBuffer[i+1] = r;
+		tBuffer[i+2] = g;
+		tBuffer[i+3] = b;
 	}
  
 	// Copy the pixels into the bytes array
-	AS3_SetS(tBuffer, "position", NULL);// was data
-	AS3_ByteArray_writeBytes(tBuffer, bytes, bytes_read);
+	//AS3_SetS(tBuffer, "position", NULL);// was data
+	//AS3_ByteArray_writeBytes(tBuffer, bytes, bytes_read);
  
 	// Free up the memory
 	free(bytes);
